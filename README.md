@@ -14,7 +14,7 @@ This template project used NodeJS, Angular, and MongoDB to register and authenti
 
 3. Run ``npm start`` to start the server
 
-4. Navigate to ``Frontend`` folder and run ``npm install`` to install all necessary dependencies for Angular
+4. Navigate to ``Angular`` folder and run ``npm install`` to install all necessary dependencies for Angular
 
 5. Finally, to run the Angular frontend using ``ng serve``
 
