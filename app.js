@@ -1,36 +1,27 @@
 // Import necessary dependencies
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const cors = require('cors');
 const path = require('path');
+const bodyParser = require('body-parser');
 const passport = require('passport');
 
-// Import configuration fro passport object
+// Import configuration for passport object
+require('./config/passport')(passport);
 
 // Create express app
 var app = express();
-// Pass the global passport object into the configuration function
-require('./config/passport')(passport);
 
-// This will initialize the passport object on every request
-app.use(passport.initialize());
-
+// Middleware setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(cors());
-
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Initializing passport object on every request
+app.use(passport.initialize());
 
-// === Routes: ===
-// ===============
-
+// Routes setup
 app.use(require('./routes/user-routes'));
 
-
-// === Server: ===
-// ===============
-
+// Server
 app.listen(3000);

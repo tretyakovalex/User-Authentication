@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// require('dotenv').config();
-// const conn = process.env.DB_STRING;
-
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
@@ -34,22 +31,3 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
-
-
-// === Sessions ===
-// ================
-
-// const sessionStore = new MongoStore({ 
-//   mongooseConnection: connection, 
-//   collection: 'sessions' 
-// });
-
-// app.use(session({
-//   secret: 'some secret',
-//   resave: false,
-//   saveUninitialized: true,
-//   store: sessionStore,
-//   cookie: {
-//       maxAge: 1000 * 60 * 60 * 24 // Equals 1 day (1 day * 24 hr/1 day * 60 min/1 hr * 60 sec/1 min * 1000 ms / 1 sec)
-//   }
-// }));
