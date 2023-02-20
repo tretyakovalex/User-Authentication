@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
+const PORT = process.env.PORT || 3000;
+
 // Import configuration for passport object
 require('./config/passport')(passport);
 
@@ -24,4 +26,6 @@ app.use(passport.initialize());
 app.use(require('./routes/user-routes'));
 
 // Server
-app.listen(3000);
+app.listen(PORT, () => {
+    console.log(`listening on port:${PORT}`);
+});
