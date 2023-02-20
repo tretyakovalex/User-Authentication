@@ -1,9 +1,11 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const conn = "mongodb+srv://karlem:9TDMmeiHYQM7Vk1W@cluster0.5kwtewm.mongodb.net/Test";
+// const conn = "mongodb+srv://karlem:9TDMmeiHYQM7Vk1W@cluster0.5kwtewm.mongodb.net/Test";
+const conn = process.env.DB_STRING;
 
 const connection = mongoose.connect(conn, {
     useNewUrlParser: true,
