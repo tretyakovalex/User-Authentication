@@ -1,12 +1,13 @@
 {
   "name": "express-session",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": ">=18 <19"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "build": "node genKeyPair.js"
+    "build": "node genKeyPair.js && cd Angular && npm run build"
   },
   "keywords": [],
   "author": "",
